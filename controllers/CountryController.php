@@ -5,11 +5,12 @@ class CountryController {
 
     public function __construct() {
         require_once(__DIR__ . '/../db_connection.php');
+        require_once('models/CountryModel.php');
+        require_once('controllers/CommonHelperController.php');
 
         $database = new Database();
         $conn = $database->getConnection();
 
-        require_once('models/CountryModel.php');
         $this->countryModel = new CountryModel($conn);
     }
 

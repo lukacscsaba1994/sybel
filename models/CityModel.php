@@ -16,6 +16,21 @@ class CityModel {
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getCities($cityId) {
+        $sql = "SELECT * FROM cities";
+        $data = [];
+
+        if($cityId !== null){
+            $sql .= " WHERE id = :id";
+            $data[':id'] = $cityId;
+        }
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute($data);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 ?>

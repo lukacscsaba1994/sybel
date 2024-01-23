@@ -21,6 +21,16 @@ class CityController {
         
         echo json_encode($countries, JSON_FORCE_OBJECT);    
     }
+
+    public function getCityById($cityId) {
+        return $this->cityModel->getCities($cityId);   
+    }
+
+    public function cityIdToName($id){
+        $city = $this->cityModel->getCities($id);
+
+        return $city[0]['name'];
+    }
 }
 
 ?>

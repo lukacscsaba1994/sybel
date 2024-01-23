@@ -11,7 +11,7 @@ class Database {
 
         try {
             // Create a PDO connection
-            $this->conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
+            $this->conn = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPassword);
 
             // Set the PDO error mode to exception
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
